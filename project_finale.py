@@ -4,9 +4,9 @@ import time
 import os
 import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(11, GPIO.IN)
-GPIO.setup(3, GPIO.OUT)
+GPIO.setmode(GPIO.BOARD) # Refer GPIO Pin out in the attached image
+GPIO.setup(11, GPIO.IN)  # PIN 11 connected to PIR's output pin
+GPIO.setup(3, GPIO.OUT)  # PIN 3 connected to LED
 global a
 a=0
 try:
@@ -23,7 +23,7 @@ try:
             time.sleep(0)
             a=1
             if a==1:
-                print("Mail .... The End")
+                print("Sent Mail .... The End")
                 raise getout
 except getout:
     import myemail
